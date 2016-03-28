@@ -26,7 +26,7 @@ containers = dockercloud.Container.list()
 for container in containers:
   if container.image_name.startswith('mysql:') and container.state == 'Running':
     service = dockercloud.Utils.fetch_by_resource_uri(container.service)
-    stack_name = service.stack or "Unknown"
+    stack_name = service_envvar(service, 'DOCKERCLOUD_STACK_NAME') or "Unknown"
 
     # Determine MySQL root password
     root_password = mysql_password(service)
