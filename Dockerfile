@@ -9,6 +9,7 @@ RUN \
 ENV S3_BUCKET ""
 ENV AWS_ACCESS_KEY_ID ""
 ENV AWS_SECRET_ACCESS_KEY ""
+ENV BACKUP_CRON "0 3 * * *"
 
 ADD entrypoint.sh /
 ADD backup.py /
